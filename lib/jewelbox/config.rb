@@ -25,7 +25,7 @@ module Jewelbox
   # Jewelbox::Service.config object.
   #
   def self.service_init
-    @service_root = Dir.pwd
+    @service_root = ENV['SERVICE_ROOT'] || Dir.pwd
     Config.load(File.join(@service_root,'conf','service.yml'))
     @config.add('service', 'root_dir', @service_root)
     @config.add('service', 'conf_dir', File.join(@service_root, 'conf'))

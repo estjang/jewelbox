@@ -1,0 +1,18 @@
+---
+service:
+  name: clocktower
+  webui_port: 80100
+  api_port: 80100
+  worker_port: 80101
+  num_workers: 4
+section1:
+  directive1: true
+  directive2: 100
+  directive3: "string x"
+  directive4: "string y"
+  directive5: ["array", "of", "strings"]
+  directive6:
+    key1: val1
+    key2: val2
+    key3: val3
+

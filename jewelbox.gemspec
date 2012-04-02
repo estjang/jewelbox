@@ -14,4 +14,6 @@ Gem::Specification.new do |gem|
   gem.name          = "jewelbox"
   gem.require_paths = ["lib"]
   gem.version       = Jewelbox::VERSION
+
+  gem.add_development_dependency('ruby-debug19')
 end
