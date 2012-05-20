@@ -66,7 +66,7 @@ module Jewelbox
     # Jewelbox.config.section2.directive2   # => "there"
     #
     # === Parameters
-    # yml_path:: [String] path to the YAML file
+    # yml_path:: [String] absolute or relative path to the YAML file
     #
     def self.load(yml_path)
       abs_path = File.expand_path(yml_path)
