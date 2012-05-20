@@ -18,8 +18,6 @@ module Jewelbox
   # Jewelbox.config.service.log_dir
   # Jewelbox.config.service.bin_dir
   # Jewelbox.config.service.lib_dir
-  # Jewelbox.config.service.data_dir
-  # Jewelbox.config.service.tmp_dir
   #
   # Also anything that's in service.yml will be accessible from
   # Jewelbox::Service.config object.
@@ -32,8 +30,6 @@ module Jewelbox
     @config.add('service', 'log_dir',  File.join(@service_root, 'log'))
     @config.add('service', 'bin_dir',  File.join(@service_root, 'bin'))
     @config.add('service', 'lib_dir',  File.join(@service_root, 'lib'))
-    @config.add('service', 'data_dir', File.join(@service_root, 'data'))
-    @config.add('service', 'tmp_dir',  File.join(@service_root, 'tmp'))
     @config
   end
 
