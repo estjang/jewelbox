@@ -18,8 +18,6 @@ class JewelboxConfigTest < MiniTest::Unit::TestCase
     assert_equal(Jewelbox.config.service.root_dir + "/log", Jewelbox.config.service.log_dir)
     assert_equal(Jewelbox.config.service.root_dir + "/bin", Jewelbox.config.service.bin_dir)
     assert_equal(Jewelbox.config.service.root_dir + "/lib", Jewelbox.config.service.lib_dir)
-    assert_equal(Jewelbox.config.service.root_dir + "/data", Jewelbox.config.service.data_dir)
-    assert_equal(Jewelbox.config.service.root_dir + "/tmp", Jewelbox.config.service.tmp_dir)
   end
 
   def test_section1
