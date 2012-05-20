@@ -42,16 +42,47 @@ module Jewelbox
 
   # === Description
   # Configuration object that represents ALL configuration items
-  # to be used by the current service process
+  # to be used by the current process.
   #
   class Config
 
     # === Description 
     # Read the given YAML file, and add its content to Jewelbox.config.
+    # For example, if you had the following in the YAML file:
+    #
+    # ---
+    # section1:
+    #   directive1: true
+    #   directive2: false
+    # section2:
+    #   directive1: "hello"
+    #   directive2: "good-bye"
+    # 
+    # The following config items are available:
+    #
+    # Jewelbox.config.section1.directive1   # => true
+    # Jewelbox.config.section1.directive2   # => true
+    # Jewelbox.config.section1.directive1   # => "hello"
+    # Jewelbox.config.section2.directive2   # => "there"
+    #
+    # === Parameters
+    # yml_path:: [String] path to the YAML file
     #
     def self.load(yml_path)
       abs_path = File.expand_path(yml_path)
       h = YAML::load(File.read(yml_path))
+      load_hash(h)
+    end
+
+    # === Description
+    # Load hash object into the global configuration space.
+    # See Config.load API, which has example hash object.
+    #
+    # === Parameters
+    # h:: [Hash] Hash object that contains 2-level configuration organization
+    #            (section/directive) to load into Jewelbox.config space.
+    #
+    def self.load_hash(h)
       h.each do |section, inner|
         inner.each do |directive, v|
           Jewelbox.config.add(section, directive, v)
