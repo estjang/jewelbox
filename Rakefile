@@ -7,7 +7,7 @@ namespace :test do
 
   Rake::TestTask.new(:unit) do |test|
     test.libs << 'test'
-    test.pattern = '{test/unit/*_test.rb}'
+    test.pattern = '{test/unit/**/*_test.rb}'
   end
 
   Rake::TestTask.new(:all) do |test|
