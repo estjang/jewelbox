@@ -4,6 +4,7 @@ Useful Ruby utility classes that handle:
 
 - configuration
 - time stamp
+- object serialization
 
 ## Installation
 
@@ -72,10 +73,6 @@ you might store your configuration in a YAML file under conf/ directory.
    Jewelbox.config.service.conf_dir    => "/opt/myrailsapp/current/conf"
    Jewelbox.config.service.log_dir     => "/opt/myrailsapp/current/log"
    Jewelbox.config.service.bin_dir     => "/opt/myrailsapp/current/bin"
-
-3. And my unicorn configuration looks like this:
- 
-   TBD
 
 ## Contributing
 
