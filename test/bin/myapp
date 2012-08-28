@@ -1,0 +1,44 @@
+#!/usr/bin/env ruby
+require 'jewelbox/command'
+
+class MyApp < Jewelbox::Command
+
+  class MyCustomException < RuntimeError; end
+  exit_code 1, RuntimeError,      "Unexpected error"
+  exit_code 2, MyCustomException, "Some good explanation"
+
+  def initialize
+    @address = "default address"
+    @name    = "default name"
+  end
+
+  def define_options(opt)
+    opt.banner = "Usage: #{opt.program_name} [options] file1 file2"
+    opt.on("-a addr", "--address addr", String, "Address to work with") {|s| @address = s}
+    opt.on("-n name", "--name name", String, "Name to work with")       {|s| @name = s}
+  end
+
+  def do_something_with_address
+    puts "@address is #{@address}"
+  end
+
+  def do_something_with_name
+    puts "@name is #{@name}"
+  end
+
+  # Entry point of the application
+  #
+  def main(argv)
+    do_something_with_address
+    do_something_with_name
+    puts_msg "regular message"
+    puts_err "error message"
+    if argv[0] == "err"
+      raise MyCustomException.new("Some bad thing happened")
+    end
+  end
+
+end
+
+MyApp.new.run
+
